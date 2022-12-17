@@ -326,12 +326,12 @@ You can change the `INT` pin to another one. Default is `GPIO4`
  1. [FullyFeatured_ESP32_W5500](examples/ESP32_W5500/FullyFeatured_ESP32_W5500)
  2. [FullyFeaturedSSL_ESP32_W5500](examples/ESP32_W5500/FullyFeaturedSSL_ESP32_W5500)
  
-#### 3. For ESP32_SC_ENC
+#### 5. For ESP32_SC_ENC
 
  1. [FullyFeatured_ESP32_SC_ENC](examples/ESP32_SC_ENC/FullyFeatured_ESP32_SC_ENC)
  2. [FullyFeaturedSSL_ESP32_SC_ENC](examples/ESP32_SC_ENC/FullyFeaturedSSL_ESP32_SC_ENC)
  
-#### 4. For ESP32_SC_W5500
+#### 6. For ESP32_SC_W5500
 
  1. [FullyFeatured_ESP32_SC_W5500](examples/ESP32_SC_W5500/FullyFeatured_ESP32_SC_W5500)
  2. [FullyFeaturedSSL_ESP32_SC_W5500](examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500)
@@ -360,7 +360,7 @@ https://github.com/khoih-prog/AsyncMQTT_ESP32/blob/77a895f1e7e46d279b941b2ffd218
 
 #### 1. FullyFeature_ESP32_SC_W5500 on ESP32S3_DEV with ESP32_S3_W5500
 
-This is terminal debug output when running [FullyFeature_ESP32_SC_W5500](examples/ESP32_SC_W5500/FullyFeature_ESP32_SC_W5500) on **ESP32S3_DEV** with `LwIP W5500`, connecting to `broker.emqx.io` MQTT server.
+This is terminal debug output when running [FullyFeatured_ESP32_SC_W5500](examples/ESP32_SC_W5500/FullyFeatured_ESP32_SC_W5500) on **ESP32S3_DEV** with `LwIP W5500`, connecting to `broker.emqx.io` MQTT server.
 
 ```cpp
 Starting FullyFeature_ESP32_SC_W5500 on ESP32S3_DEV with ESP32_S3_W5500
@@ -417,7 +417,7 @@ Publish acknowledged.
 
 #### 2. FullyFeatureSSL_ESP32_SC_W5500 on ESP32S3_DEV with ESP32_S3_W5500
 
-This is terminal debug output when running [FullyFeatureSSL_ESP32_SC_W5500](examples/ESP32_SC_W5500/FullyFeatureSSL_ESP32_SC_W5500) on **ESP32S3_DEV** with `LwIP W5500`, connecting to `broker.emqx.io` secured MQTTS server (port 8883)
+This is terminal debug output when running [FullyFeaturedSSL_ESP32_SC_W5500](examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500) on **ESP32S3_DEV** with `LwIP W5500`, connecting to `broker.emqx.io` secured MQTTS server (port 8883)
 
 
 ```cpp
@@ -475,7 +475,7 @@ Publish acknowledged
 
 #### 3. FullyFeature_ESP32_SC_ENC on ESP32S3_DEV with ESP32_S3_ENC28J60
 
-This is terminal debug output when running [FullyFeature_ESP32_SC_ENC](examples/ESP32_SC_ENC/FullyFeature_ESP32_SC_ENC) on **ESP32S3_DEV** with `LwIP ENC28J60`, connecting to `broker.emqx.io` MQTT server.
+This is terminal debug output when running [FullyFeatured_ESP32_SC_ENC](examples/ESP32_SC_ENC/FullyFeatured_ESP32_SC_ENC) on **ESP32S3_DEV** with `LwIP ENC28J60`, connecting to `broker.emqx.io` MQTT server.
 
 ```cpp
 Starting FullyFeature_ESP32_SC_ENC on ESP32S3_DEV with ESP32_S3_ENC28J60
@@ -532,7 +532,7 @@ Publish acknowledged.
 
 #### 4. FullyFeatureSSL_ESP32_SC_ENC on ESP32S3_DEV with ESP32_S3_ENC28J60
 
-This is terminal debug output when running [FullyFeatureSSL_ESP32_SC_ENC](examples/ESP32_SC_ENC/FullyFeatureSSL_ESP32_SC_ENC) on **ESP32S3_DEV** with `LwIP ENC28J60`, connecting to `broker.emqx.io` secured MQTTS server (port 8883)
+This is terminal debug output when running [FullyFeaturedSSL_ESP32_SC_ENC](examples/ESP32_SC_ENC/FullyFeaturedSSL_ESP32_SC_ENC) on **ESP32S3_DEV** with `LwIP ENC28J60`, connecting to `broker.emqx.io` secured MQTTS server (port 8883)
 
 
 ```cpp
@@ -590,7 +590,7 @@ Publish acknowledged
 
 #### 5. FullyFeatureSSL_WT32_ETH01 on WT32-ETH01 with ETH_PHY_LAN8720
 
-This is terminal debug output when running [FullyFeatureSSL_WT32_ETH01](examples/WT32_ETH01/FullyFeatureSSL_WT32_ETH01) on **WT32-ETH01** connecting to `broker.emqx.io` secured MQTT server (port 8883)
+This is terminal debug output when running [FullyFeaturedSSL_WT32_ETH01](examples/WT32_ETH01/FullyFeaturedSSL_WT32_ETH01) on **WT32-ETH01** connecting to `broker.emqx.io` secured MQTT server (port 8883)
 
 
 ```cpp
