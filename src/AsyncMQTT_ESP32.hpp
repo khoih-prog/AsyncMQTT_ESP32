@@ -10,11 +10,12 @@
 
   Built by Khoi Hoang https://github.com/khoih-prog/AsyncMQTT_ESP32
 
-  Version: 1.8.0
+  Version: 1.9.0
 
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
   1.8.0    K Hoang     17/12/2022 Initial coding to port to ESP32 boards using WiFi or LwIP W5500, LAN8720 or ENC28J60
+  1.9.0    K Hoang     21/12/2022 Add support to ESP32S2/C3 boards using LwIP W5500 or ENC28J60 Ethernet
  *****************************************************************************************************************************/
 
 #pragma once
@@ -33,15 +34,15 @@
 
 /////////////////////////////////////////////////////////
 
-#define ASYNC_MQTT_ESP32_SHORT_VERSION        "AsyncMQTT_ESP32 v1.8.0" 
+#define ASYNC_MQTT_ESP32_SHORT_VERSION        "AsyncMQTT_ESP32 v1.9.0" 
 
 /////////////////////////////////////////////////////////
 
 #define ASYNC_MQTT_ESP32_VERSION_MAJOR       1
-#define ASYNC_MQTT_ESP32_VERSION_MINOR       8
+#define ASYNC_MQTT_ESP32_VERSION_MINOR       9
 #define ASYNC_MQTT_ESP32_VERSION_PATCH       0
 
-#define ASYNC_MQTT_ESP32_VERSION_INT         1008000
+#define ASYNC_MQTT_ESP32_VERSION_INT         1009000
 
 /////////////////////////////////////////////////////////
 

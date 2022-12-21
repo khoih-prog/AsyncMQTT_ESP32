@@ -225,6 +225,7 @@ void setup()
   Serial.println(ASYNC_MQTT_ESP32_VERSION);
 
   AMQTT_LOGWARN(F("Default SPI pinout:"));
+  AMQTT_LOGWARN1(F("SPI_HOST:"), ETH_SPI_HOST);
   AMQTT_LOGWARN1(F("MOSI:"), MOSI_GPIO);
   AMQTT_LOGWARN1(F("MISO:"), MISO_GPIO);
   AMQTT_LOGWARN1(F("SCK:"),  SCK_GPIO);
@@ -267,8 +268,8 @@ void setup()
 
   //bool begin(int MISO_GPIO, int MOSI_GPIO, int SCLK_GPIO, int CS_GPIO, int INT_GPIO, int SPI_CLOCK_MHZ,
   //           int SPI_HOST, uint8_t *ENC28J60_Mac = ENC28J60_Default_Mac);
-  //ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, SPI_HOST );
-  ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, SPI_HOST, mac[index] );
+  //ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, ETH_SPI_HOST );
+  ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, ETH_SPI_HOST, mac[index] );
 
   // Static IP, leave without this line to get IP via DHCP
   //bool config(IPAddress local_ip, IPAddress gateway, IPAddress subnet, IPAddress dns1 = 0, IPAddress dns2 = 0);
