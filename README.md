@@ -724,7 +724,7 @@ Publish acknowledged
 
 #### 6. FullyFeatureSSL_ESP32_SC_W5500 on ESP32S2_DEV with ESP32_S2_W5500
 
-This is terminal debug output when running [FullyFeatureSSL_ESP32_SC_W5500](examples/ESP32_SC_W5500/FullyFeatureSSL_ESP32_SC_W5500) on **ESP32S2_DEV** connecting to `broker.emqx.io` secured MQTT server (port 8883)
+This is terminal debug output when running [FullyFeaturedSSL_ESP32_SC_W5500](examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500) on **ESP32S2_DEV** connecting to `broker.emqx.io` secured MQTT server (port 8883)
 
 
 ```cpp
@@ -792,7 +792,7 @@ Publish acknowledged
 
 #### 7. FullyFeatureSSL_ESP32_SC_W5500 on ESP32C3_DEV with ESP32_C3_W5500
 
-This is terminal debug output when running [FullyFeatureSSL_ESP32_SC_W5500](examples/ESP32_SC_W5500/FullyFeatureSSL_ESP32_SC_W5500) on **ESP32C3_DEV** connecting to `broker.emqx.io` secured MQTT server (port 8883)
+This is terminal debug output when running [FullyFeaturedSSL_ESP32_SC_W5500](examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500) on **ESP32C3_DEV** connecting to `broker.emqx.io` secured MQTT server (port 8883)
 
 
 ```cpp
@@ -860,7 +860,7 @@ Publish acknowledged
 
 #### 8. FullyFeatureSSL_ESP32_SC_ENC on ESP32C3_DEV with ESP32_C3_ENC28J60
 
-This is terminal debug output when running [FullyFeatureSSL_ESP32_SC_ENC](examples/ESP32_SC_ENC/FullyFeatureSSL_ESP32_SC_ENC) on **ESP32C3_DEV** connecting to `broker.emqx.io` secured MQTT server (port 8883)
+This is terminal debug output when running [FullyFeaturedSSL_ESP32_SC_ENC](examples/ESP32_SC_ENC/FullyFeaturedSSL_ESP32_SC_ENC) on **ESP32C3_DEV** connecting to `broker.emqx.io` secured MQTT server (port 8883)
 
 
 ```cpp
