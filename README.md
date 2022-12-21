@@ -419,13 +419,13 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 
 #### 1. File [FullyFeaturedSSL_ESP32_SC_W5500.ino](examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500.ino)
 
-https://github.com/khoih-prog/AsyncMQTT_ESP32/blob/77a895f1e7e46d279b941b2ffd218854e98a6654/examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500.ino#L14-L285
+https://github.com/khoih-prog/AsyncMQTT_ESP32/blob/67a50000e5d0d5d8df137016540005355f5d6044/examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500.ino#L14-L285
 
 
 
 #### 2. File [defines.h](examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500/defines.h)
 
-https://github.com/khoih-prog/AsyncMQTT_ESP32/blob/77a895f1e7e46d279b941b2ffd218854e98a6654/examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500/defines.h#L13-L76
+https://github.com/khoih-prog/AsyncMQTT_ESP32/blob/67a50000e5d0d5d8df137016540005355f5d6044/examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500/defines.h#L13-L90
 
 
 ---
