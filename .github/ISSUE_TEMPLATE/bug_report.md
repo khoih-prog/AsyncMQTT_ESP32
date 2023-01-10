@@ -36,8 +36,8 @@ If applicable, add screenshots to help explain your problem.
 Please ensure to specify the following:
 
 * Arduino IDE version (e.g. 1.8.19) or Platform.io version
-* Board Type (e.g. ESP32S3_DEV, ESP32S2_DEV, ESP32C3_DEV)
-* Board Core Version (e.g. ESP32 core v2.0.5)
+* Board Type (e.g. ESP32_DEV, ESP32S3_DEV, ESP32S2_DEV, ESP32C3_DEV)
+* Board Core Version (e.g. ESP32 core v2.0.6)
 * Contextual information (e.g. what you were trying to achieve)
 * Simplest possible steps to reproduce
 * Anything that might be relevant in your opinion, such as:
@@ -45,17 +45,18 @@ Please ensure to specify the following:
   * Network configuration
 
 
-Please be educated, civilized and constructive. Disrespective posts against [GitHub Code of Conduct](https://docs.github.com/en/site-policy/github-terms/github-event-code-of-conduct) will be ignored and deleted.
+Please be educated, civilized and constructive as you've always been. Disrespective posts against [GitHub Code of Conduct](https://docs.github.com/en/site-policy/github-terms/github-event-code-of-conduct) will be ignored and deleted.
 
+---
 
 ### Example
 
 ```
 Arduino IDE version: 1.8.19
 ESP32S3_DEV board
-ESP32 core v2.0.5
+ESP32 core v2.0.6
 OS: Ubuntu 20.04 LTS
-Linux xy-Inspiron-3593 5.15.0-56-generic #62~20.04.1-Ubuntu SMP Tue Nov 22 21:24:20 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+Linux xy-Inspiron-3593 5.15.0-57-generic #63~20.04.1-Ubuntu SMP Wed Nov 30 13:40:16 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
 
 Context:
 I encountered a crash while using this library
