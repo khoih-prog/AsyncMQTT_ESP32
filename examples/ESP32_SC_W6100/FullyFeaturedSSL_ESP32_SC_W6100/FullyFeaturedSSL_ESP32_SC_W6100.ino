@@ -1,12 +1,12 @@
 /****************************************************************************************************************************
-  FullyFeatureSSL_ESP32_ENC.ino
+  FullyFeatureSSL_ESP32_SC_W6100.ino
 
-  AsyncMQTT_ESP32 is a library for ESP32 boards using WiFi or LwIP W5500, LAN8720 or ENC28J60
+  AsyncMQTT_ESP32 is a library for ESP32 boards using WiFi or LwIP W6100 / W6100 / ENC28J60 / LAN8720 Ethernet
 
   Based on and modified from :
 
   1) async-mqtt-client (https://github.com/marvinroger/async-mqtt-client)
-  2) async-mqtt-client (https://github.com/khoih-prog/AsyncMQTT_Generic)
+  2) AsyncMQTT_Generic (https://github.com/khoih-prog/AsyncMQTT_Generic)
 
   Built by Khoi Hoang https://github.com/khoih-prog/AsyncMQTT_ESP32
  *****************************************************************************************************************************/
@@ -32,13 +32,13 @@ extern "C"
 #define MQTT_SECURE     true
 
 const uint8_t MQTT_SERVER_FINGERPRINT[] = {0x7e, 0x36, 0x22, 0x01, 0xf9, 0x7e, 0x99, 0x2f, 0xc5, 0xdb, 0x3d, 0xbe, 0xac, 0x48, 0x67, 0x5b, 0x5d, 0x47, 0x94, 0xd2};
-const char *PubTopic  = "async-mqtt/ESP32_ENC_SSL_Pub";               // Topic to publish
+const char *PubTopic  = "async-mqtt/ESP32_W6100_SSL_Pub";               // Topic to publish
 
 #define MQTT_PORT       8883
 
 #else
 
-const char *PubTopic  = "async-mqtt/ESP32_ENC_Pub";                   // Topic to publish
+const char *PubTopic  = "async-mqtt/ESP32_SC_W6100_Pub";                   // Topic to publish
 
 #define MQTT_PORT       1883
 
@@ -139,7 +139,7 @@ void onMqttConnect(bool sessionPresent)
   Serial.print("Subscribing at QoS 2, packetId: ");
   Serial.println(packetIdSub);
 
-  mqttClient.publish(PubTopic, 0, true, "ESP32_ENC Test");
+  mqttClient.publish(PubTopic, 0, true, "ESP32_W6100 Test");
   Serial.println("Publishing at QoS 0");
 
   uint16_t packetIdPub1 = mqttClient.publish(PubTopic, 1, true, "test 2");
@@ -159,7 +159,7 @@ void onMqttDisconnect(AsyncMqttClientDisconnectReason reason)
 
   Serial.println("Disconnected from MQTT.");
 
-  if (ESP32_ENC_isConnected())
+  if (ESP32_W6100_isConnected())
   {
     xTimerStart(mqttReconnectTimer, 0);
   }
@@ -216,13 +216,16 @@ void setup()
 
   while (!Serial && millis() < 5000);
 
-  Serial.print("\nStarting FullyFeatureSSL_ESP32_ENC on ");
+  delay(500);
+
+  Serial.print("\nStarting FullyFeatureSSL_ESP32_SC_W6100 on ");
   Serial.print(ARDUINO_BOARD);
   Serial.println(" with " + String(SHIELD_TYPE));
-  Serial.println(WEBSERVER_ESP32_ENC_VERSION);
+  Serial.println(WEBSERVER_ESP32_SC_W6100_VERSION);
   Serial.println(ASYNC_MQTT_ESP32_VERSION);
 
   AMQTT_LOGWARN(F("Default SPI pinout:"));
+  AMQTT_LOGWARN1(F("SPI_HOST:"), ETH_SPI_HOST);
   AMQTT_LOGWARN1(F("MOSI:"), MOSI_GPIO);
   AMQTT_LOGWARN1(F("MISO:"), MISO_GPIO);
   AMQTT_LOGWARN1(F("SCK:"),  SCK_GPIO);
@@ -262,15 +265,15 @@ void setup()
   // start the ethernet connection and the server:
   // Use DHCP dynamic IP and random mac
   //bool begin(int MISO_GPIO, int MOSI_GPIO, int SCLK_GPIO, int CS_GPIO, int INT_GPIO, int SPI_CLOCK_MHZ,
-  //           int SPI_HOST, uint8_t *ENC28J60_Mac = ENC28J60_Default_Mac);
-  //ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, SPI_HOST );
-  ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, SPI_HOST, mac[millis() % NUMBER_OF_MAC] );
+  //           int SPI_HOST, uint8_t *W6100_Mac = W6100_Default_Mac);
+  ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, ETH_SPI_HOST );
+  //ETH.begin( MISO_GPIO, MOSI_GPIO, SCK_GPIO, CS_GPIO, INT_GPIO, SPI_CLOCK_MHZ, ETH_SPI_HOST, mac[millis() % NUMBER_OF_MAC] );
 
   // Static IP, leave without this line to get IP via DHCP
   //bool config(IPAddress local_ip, IPAddress gateway, IPAddress subnet, IPAddress dns1 = 0, IPAddress dns2 = 0);
   //ETH.config(myIP, myGW, mySN, myDNS);
 
-  ESP32_ENC_waitForConnect();
+  ESP32_W6100_waitForConnect();
 
   ///////////////////////////////////
 }
