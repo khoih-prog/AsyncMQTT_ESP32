@@ -30,7 +30,7 @@
   * [2. ESP32 ADCs functions](#2-esp32-adcs-functions)
   * [3. ESP32 WiFi uses ADC2 for WiFi functions](#3-esp32-wifi-uses-adc2-for-wifi-functions)
 * [Basic Usage](#Basic-Usage)
-* [How to connect W5500 or ENC28J60 to ESP32_S2/S3/C3](#How-to-connect-W5500-or-ENC28J60-to-ESP32_S2S3C3)
+* [How to connect W5500, W6100 or ENC28J60 to ESP32_S2/S3/C3](#How-to-connect-W5500-W6100-or-ENC28J60-to-ESP32_S2S3C3)
 * [Examples](#examples)
   * [1. For ESP32](#1-for-ESP32)
     * [1. FullyFeatured_ESP32](examples/ESP32/FullyFeatured_ESP32)
@@ -50,6 +50,12 @@
   * [6. For ESP32_SC_W5500](#6-for-ESP32_SC_W5500)
     * [1. FullyFeatured_ESP32_SC_W5500](examples/ESP32_SC_W5500/FullyFeatured_ESP32_SC_W5500)
     * [2. FullyFeaturedSSL_ESP32_SC_W5500](examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500)
+  * [7. For ESP32_W6100](#7-for-ESP32_W6100)
+    * [1. FullyFeatured_ESP32_W6100](examples/ESP32_W6100/FullyFeatured_ESP32_W6100)
+    * [2. FullyFeaturedSSL_ESP32_W6100](examples/ESP32_W6100/FullyFeaturedSSL_ESP32_W6100)
+  * [8. For ESP32_SC_W6100](#8-for-ESP32_SC_W6100)
+    * [1. FullyFeatured_ESP32_SC_W6100](examples/ESP32_SC_W6100/FullyFeatured_ESP32_SC_W6100)
+    * [2. FullyFeaturedSSL_ESP32_SC_W6100](examples/ESP32_SC_W6100/FullyFeaturedSSL_ESP32_SC_W6100)
 * [Example FullyFeaturedSSL_ESP32_SC_W5500](#example-FullyFeaturedSSL_ESP32_SC_W5500)
   * [1. File FullyFeaturedSSL_ESP32_SC_W5500.ino](#1-file-FullyFeaturedSSL_ESP32_SC_W5500ino)
   * [2. File defines.h](#2-file-definesh)
@@ -62,6 +68,8 @@
   * [ 6. FullyFeatureSSL_ESP32_SC_W5500 on ESP32S2_DEV with ESP32_S2_W5500](#6-FullyFeatureSSL_ESP32_SC_W5500-on-ESP32S2_DEV-with-ESP32_S2_W5500)
   * [ 7. FullyFeatureSSL_ESP32_SC_W5500 on ESP32C3_DEV with ESP32_C3_W5500](#7-FullyFeatureSSL_ESP32_SC_W5500-on-ESP32C3_DEV-with-ESP32_C3_W5500)
   * [ 8. FullyFeatureSSL_ESP32_SC_ENC on ESP32C3_DEV with ESP32_C3_ENC28J60](#8-FullyFeatureSSL_ESP32_SC_ENC-on-ESP32C3_DEV-with-ESP32_C3_ENC28J60)
+  * [ 9. FullyFeature_ESP32_W6100 on ESP32_DEV with ESP32_W6100](#9-FullyFeature_ESP32_W6100-on-ESP32_DEV-with-ESP32_W6100)
+  * [10. FullyFeatureSSL_ESP32_SC_W6100 on ESP32S3_DEV with ESP32_S3_W6100](#10-FullyFeatureSSL_ESP32_SC_W6100-on-ESP32S3_DEV-with-ESP32_S3_W6100)
 * [Debug](#debug)
 * [Troubleshooting](#troubleshooting)
 * [Issues](#issues)
@@ -79,7 +87,7 @@
 
 #### Features
 
-This [**AsyncMQTT_ESP32 library**](https://github.com/khoih-prog/AsyncMQTT_ESP32) is based on and modified from [**Marvin Roger's async-mqtt-client Library**](https://github.com/marvinroger/async-mqtt-client), to provide support to `ESP32/S2/S3/C3` boards using WiFi or `LwIP W5500 / ENC28J60 / LAN8720 Ethernet`
+This [**AsyncMQTT_ESP32 library**](https://github.com/khoih-prog/AsyncMQTT_ESP32) is based on and modified from [**Marvin Roger's async-mqtt-client Library**](https://github.com/marvinroger/async-mqtt-client), to provide support to `ESP32/S2/S3/C3` boards using WiFi or `LwIP W5500 / W6100 / ENC28J60 / LAN8720 Ethernet`
 
 #### Why Async is better
 
@@ -105,21 +113,21 @@ This [**AsyncMQTT_ESP32 library**](https://github.com/khoih-prog/AsyncMQTT_ESP32
 
 1. **ESP32 (ESP32-DEV, etc.)**
 
-#### 2. ESP32 using LwIP ENC28J60, W5500 or LAN8720
+#### 2. ESP32 using LwIP ENC28J60, W5500, W6100 or LAN8720
 
 1. **ESP32 (ESP32-DEV, etc.)**
 
 #### 3. **WT32_ETH01** using ESP32-based boards and LAN8720 Ethernet
 
-#### 4. ESP32S3 using LwIP ENC28J60 or W5500
+#### 4. ESP32S3 using LwIP W5500, W6100 or ENC28J60
 
 1. **ESP32-S3 (ESP32S3_DEV, ESP32_S3_BOX, UM TINYS3, UM PROS3, UM FEATHERS3, etc.)**
 
-#### 5. ESP32S2 using LwIP ENC28J60 or W5500
+#### 5. ESP32S2 using LwIP W5500, W6100 or ENC28J60
 
 1. **ESP32-S2 (ESP32S2_DEV, etc.)**
 
-#### 6. ESP32C3 using LwIP ENC28J60 or W5500
+#### 6. ESP32C3 using LwIP W5500, W6100 or ENC28J60
 
 1. **ESP32-C3 (ESP32C3_DEV, etc.)**
 
@@ -144,6 +152,18 @@ This [**AsyncMQTT_ESP32 library**](https://github.com/khoih-prog/AsyncMQTT_ESP32
 <p align="center">
     <img src="https://github.com/khoih-prog/AsyncMQTT_ESP32/raw/main/Images/ESP32_C3_DevKitC_02.png">
 </p> 
+
+
+---
+
+##### W6100
+
+`FULL_DUPLEX, 100Mbps`
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncMQTT_ESP32/raw/main/Images/W6100.png">
+</p>
+
 
 ---
 
@@ -175,7 +195,7 @@ This [**AsyncMQTT_ESP32 library**](https://github.com/khoih-prog/AsyncMQTT_ESP32
 
 ### To-be Supported Boards
 
-#### 1. New ESP32 using LwIP ENC28J60 or W5500
+#### 1. New ESP32 using LwIP W5500, W6100 or ENC28J60
 
 
 ---
@@ -184,14 +204,16 @@ This [**AsyncMQTT_ESP32 library**](https://github.com/khoih-prog/AsyncMQTT_ESP32
 ## Prerequisites
 
  1. [`Arduino IDE 1.8.19+` for Arduino](https://github.com/arduino/Arduino). [![GitHub release](https://img.shields.io/github/release/arduino/Arduino.svg)](https://github.com/arduino/Arduino/releases/latest)
- 2. [`ESP32 Core 2.0.5+`](https://github.com/espressif/arduino-esp32) for ESP32-based boards. [![Latest release](https://img.shields.io/github/release/espressif/arduino-esp32.svg)](https://github.com/espressif/arduino-esp32/releases/latest/)
- 3. [`AsyncTCP v1.1.1+`](https://github.com/me-no-dev/AsyncTCP) for ESP32.
+ 2. [`ESP32 Core 2.0.6+`](https://github.com/espressif/arduino-esp32) for ESP32-based boards. [![Latest release](https://img.shields.io/github/release/espressif/arduino-esp32.svg)](https://github.com/espressif/arduino-esp32/releases/latest/)
+ 3. [`AsyncTCP v1.1.1+`](https://github.com/me-no-dev/AsyncTCP) for ESP32. To install manually for Arduno IDE
  4. [`AsyncTCP_SSL v1.3.1+`](https://github.com/khoih-prog/AsyncTCP_SSL) for ESP32. [![GitHub release](https://img.shields.io/github/release/khoih-prog/AsyncTCP_SSL.svg)](https://github.com/khoih-prog/AsyncTCP_SSL/releases)
- 5. [`WebServer_WT32_ETH01 v1.5.1+`](https://github.com/khoih-prog/WebServer_WT32_ETH01) for ESP32-based `WT32_ETH01` using **either ESP32 core v2.0.0+ or v1.0.6-**. [![GitHub release](https://img.shields.io/github/release/khoih-prog/WebServer_WT32_ETH01.svg)](https://github.com/khoih-prog/WebServer_WT32_ETH01/releases)
- 6. [`WebServer_ESP32_ENC v1.5.1+`](https://github.com/khoih-prog/WebServer_ESP32_ENC) for `ESP32` boards using `LwIP ENC28J60 Ethernet`. [![GitHub release](https://img.shields.io/github/release/khoih-prog/WebServer_ESP32_ENC.svg)](https://github.com/khoih-prog/WebServer_ESP32_ENC/releases)
- 7. [`WebServer_ESP32_W5500 v1.5.1+`](https://github.com/khoih-prog/WebServer_ESP32_W5500) for `ESP32` boards using `LwIP W5500 Ethernet`. [![GitHub release](https://img.shields.io/github/release/khoih-prog/WebServer_ESP32_W5500.svg)](https://github.com/khoih-prog/WebServer_ESP32_W5500/releases)
- 8. [`WebServer_ESP32_SC_ENC library v1.2.0+`](https://github.com/khoih-prog/WebServer_ESP32_SC_ENC) if necessary to use `ESP32_S2/S3/C3` boards using `LwIP ENC28J60` Ethernet. [![GitHub release](https://img.shields.io/github/release/khoih-prog/WebServer_ESP32_SC_ENC.svg)](https://github.com/khoih-prog/WebServer_ESP32_SC_ENC/releases)
- 9. [`WebServer_ESP32_SC_W5500 library v1.2.0+`](https://github.com/khoih-prog/WebServer_ESP32_SC_W5500) if necessary to use `ESP32_S2/S3/C3` boards using `LwIP W5500` Ethernet. [![GitHub release](https://img.shields.io/github/release/khoih-prog/WebServer_ESP32_SC_W5500.svg)](https://github.com/khoih-prog/WebServer_ESP32_SC_W5500/releases)
+ 5. [`WebServer_WT32_ETH01 v1.5.1+`](https://github.com/khoih-prog/WebServer_WT32_ETH01) for ESP32-based WT32_ETH01 using **either ESP32 core v2.0.0+ or v1.0.6-**. [![GitHub release](https://img.shields.io/github/release/khoih-prog/WebServer_WT32_ETH01.svg)](https://github.com/khoih-prog/WebServer_WT32_ETH01/releases)
+ 6. [`WebServer_ESP32_ENC library v1.5.1+`](https://github.com/khoih-prog/WebServer_ESP32_ENC) if necessary to use ESP32 boards using `LwIP ENC28J60` Ethernet. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_ENC.svg?)](https://www.ardu-badge.com/WebServer_ESP32_ENC)
+ 7. [`WebServer_ESP32_W5500 library v1.5.2+`](https://github.com/khoih-prog/WebServer_ESP32_W5500) if necessary to use ESP32 boards using `LwIP W5500` Ethernet. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_W5500.svg?)](https://www.ardu-badge.com/WebServer_ESP32_W5500)
+ 8. [`WebServer_ESP32_SC_ENC library v1.2.0+`](https://github.com/khoih-prog/WebServer_ESP32_SC_ENC) if necessary to use `ESP32_S2/S3/C3` boards using `LwIP ENC28J60` Ethernet. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_ENC.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_ENC)
+ 9. [`WebServer_ESP32_SC_W5500 library v1.2.1+`](https://github.com/khoih-prog/WebServer_ESP32_SC_W5500) if necessary to use `ESP32_S2/S3/C3` boards using `LwIP W5500` Ethernet. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_W5500.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_W5500)
+10. [`WebServer_ESP32_W6100 library v1.5.2+`](https://github.com/khoih-prog/WebServer_ESP32_W6100) if necessary to use ESP32 boards using `LwIP W6100` Ethernet. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_W6100.svg?)](https://www.ardu-badge.com/WebServer_ESP32_W6100)
+11. [`WebServer_ESP32_SC_W6100 library v1.2.1+`](https://github.com/khoih-prog/WebServer_ESP32_SC_W6100) if necessary to use `ESP32_S2/S3/C3` boards using `LwIP W6100` Ethernet. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_W6100.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_W6100)
 
 ---
 ---
@@ -272,10 +294,22 @@ Please check [API documentation](https://github.com/khoih-prog/AsyncMQTT_ESP32/b
 ---
 
 
-### How to connect W5500 or ENC28J60 to ESP32_S2/S3/C3
+### How to connect W5500, W6100 or ENC28J60 to ESP32_S2/S3/C3
+
+##### W6100
+
+`FULL_DUPLEX, 100Mbps`
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncMQTT_ESP32/raw/main/Images/W6100.png">
+</p>
+
+---
 
 
 #### W5500
+
+`FULL_DUPLEX, 100Mbps`
 
 <p align="center">
     <img src="https://github.com/khoih-prog/AsyncMQTT_ESP32/raw/main/Images/W5500.png">
@@ -285,7 +319,11 @@ Please check [API documentation](https://github.com/khoih-prog/AsyncMQTT_ESP32/b
     <img src="https://github.com/khoih-prog/AsyncMQTT_ESP32/raw/main/Images/W5500_small.png">
 </p> 
 
+---
+
 #### ENC28J60
+
+`FULL_DUPLEX, 10Mbps`
 
 <p align="center">
     <img src="https://github.com/khoih-prog/AsyncMQTT_ESP32/raw/main/Images/ENC28J60.png">
@@ -298,7 +336,7 @@ Please check [API documentation](https://github.com/khoih-prog/AsyncMQTT_ESP32/b
 
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncHTTPSRequest_ESP32_Ethernet/raw/main/Images/ESP32S3_DEV.png">
+    <img src="https://github.com/khoih-prog/AsyncMQTT_ESP32/raw/main/Images/ESP32S3_DEV.png">
 </p> 
 
 
@@ -309,12 +347,12 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 #define INT_GPIO            4
 ```
 
-|W5500 or ENC28J60|<--->|ESP32_S3|
+|W5500, W6100 or ENC28J60|<--->|ESP32_S3|
 |:-:|:-:|:-:|
 |MOSI|<--->|GPIO11|
 |MISO|<--->|GPIO13|
 |SCK|<--->|GPIO12|
-|SS|<--->|GPIO10|
+|CS/SS|<--->|GPIO10|
 |INT|<--->|GPIO4|
 |RST|<--->|RST|
 |GND|<--->|GND|
@@ -326,7 +364,7 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncHTTPSRequest_ESP32_Ethernet/raw/main/Images/ESP32S2_DEV.png">
+    <img src="https://github.com/khoih-prog/AsyncMQTT_ESP32/raw/main/Images/ESP32S2_DEV.png">
 </p> 
 
 
@@ -337,12 +375,12 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 #define INT_GPIO            4
 ```
 
-|W5500 or ENC28J60|<--->|ESP32_S2|
+|W5500, W6100 or ENC28J60|<--->|ESP32_S2|
 |:-:|:-:|:-:|
 |MOSI|<--->|GPIO35|
 |MISO|<--->|GPIO37|
 |SCK|<--->|GPIO36|
-|SS|<--->|GPIO34|
+|CS/SS|<--->|GPIO34|
 |INT|<--->|GPIO4|
 |RST|<--->|RST|
 |GND|<--->|GND|
@@ -354,7 +392,7 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 #### ESP32C3_DEV
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncHTTPSRequest_ESP32_Ethernet/raw/main/Images/ESP32_C3_DevKitC_02.png">
+    <img src="https://github.com/khoih-prog/AsyncMQTT_ESP32/raw/main/Images/ESP32_C3_DevKitC_02.png">
 </p> 
 
 
@@ -365,12 +403,12 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 #define INT_GPIO            10
 ```
 
-|W5500 or ENC28J60|<--->|ESP32_C3|
+|W5500, W6100 or ENC28J60|<--->|ESP32_C3|
 |:-:|:-:|:-:|
 |MOSI|<--->|GPIO6|
 |MISO|<--->|GPIO5|
 |SCK|<--->|GPIO4|
-|SS|<--->|GPIO7|
+|CS/SS|<--->|GPIO7|
 |INT|<--->|GPIO10|
 |RST|<--->|RST|
 |GND|<--->|GND|
@@ -410,7 +448,16 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 
  1. [FullyFeatured_ESP32_SC_W5500](examples/ESP32_SC_W5500/FullyFeatured_ESP32_SC_W5500)
  2. [FullyFeaturedSSL_ESP32_SC_W5500](examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500)
+
+#### 7. For ESP32_W6100
+
+ 1. [FullyFeatured_ESP32_W6100](examples/ESP32_W6100/FullyFeatured_ESP32_W6100)
+ 2. [FullyFeaturedSSL_ESP32_W6100](examples/ESP32_W6100/FullyFeaturedSSL_ESP32_W6100)
  
+#### 8. For ESP32_SC_W6100
+
+ 1. [FullyFeatured_ESP32_SC_W6100](examples/ESP32_SC_W6100/FullyFeatured_ESP32_SC_W6100)
+ 2. [FullyFeaturedSSL_ESP32_SC_W6100](examples/ESP32_SC_W6100/FullyFeaturedSSL_ESP32_SC_W6100)  
       
 ---
 ---
@@ -419,13 +466,13 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 
 #### 1. File [FullyFeaturedSSL_ESP32_SC_W5500.ino](examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500.ino)
 
-https://github.com/khoih-prog/AsyncMQTT_ESP32/blob/67a50000e5d0d5d8df137016540005355f5d6044/examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500.ino#L14-L285
+https://github.com/khoih-prog/AsyncMQTT_ESP32/blob/4a9f8bcdb04e6c0c329bda40896afd4d7d8e31c7/examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500.ino#L14-L283
 
 
 
 #### 2. File [defines.h](examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500/defines.h)
 
-https://github.com/khoih-prog/AsyncMQTT_ESP32/blob/67a50000e5d0d5d8df137016540005355f5d6044/examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500/defines.h#L13-L90
+https://github.com/khoih-prog/AsyncMQTT_ESP32/blob/4a9f8bcdb04e6c0c329bda40896afd4d7d8e31c7/examples/ESP32_SC_W5500/FullyFeaturedSSL_ESP32_SC_W5500/defines.h#L13-L90
 
 
 ---
@@ -439,8 +486,8 @@ This is terminal debug output when running [FullyFeatured_ESP32_SC_W5500](exampl
 
 ```cpp
 Starting FullyFeature_ESP32_SC_W5500 on ESP32S3_DEV with ESP32_S3_W5500
-WebServer_ESP32_SC_W5500 v1.2.0 for core v2.0.0+
-AsyncMQTT_ESP32 v1.9.0 for ESP32 core v2.0.0+
+WebServer_ESP32_SC_W5500 v1.2.1 for core v2.0.0+
+AsyncMQTT_ESP32 v1.10.0 for ESP32 core v2.0.0+
 ETH starting
 ETH connected
 ETH got IP
@@ -497,8 +544,8 @@ This is terminal debug output when running [FullyFeaturedSSL_ESP32_SC_W5500](exa
 
 ```cpp
 Starting FullyFeatureSSL_ESP32_SC_W5500 on ESP32S3_DEV with ESP32_S3_W5500
-WebServer_ESP32_SC_W5500 v1.2.0 for core v2.0.0+
-AsyncMQTT_ESP32 v1.9.0 for ESP32 core v2.0.0+
+WebServer_ESP32_SC_W5500 v1.2.1 for core v2.0.0+
+AsyncMQTT_ESP32 v1.10.0 for ESP32 core v2.0.0+
 ETH starting
 ETH connected
 ETH got IP
@@ -555,7 +602,7 @@ This is terminal debug output when running [FullyFeatured_ESP32_SC_ENC](examples
 ```cpp
 Starting FullyFeature_ESP32_SC_ENC on ESP32S3_DEV with ESP32_S3_ENC28J60
 WebServer_ESP32_SC_ENC v1.2.0 for core v2.0.0+
-AsyncMQTT_ESP32 v1.9.0 for ESP32 core v2.0.0+
+AsyncMQTT_ESP32 v1.10.0 for ESP32 core v2.0.0+
 ETH starting
 ETH connected
 ETH got IP
@@ -613,7 +660,7 @@ This is terminal debug output when running [FullyFeaturedSSL_ESP32_SC_ENC](examp
 ```cpp
 Starting FullyFeatureSSL_ESP32_SC_ENC on ESP32S3_DEV with ESP32_S3_ENC28J60
 WebServer_ESP32_SC_ENC v1.2.0 for core v2.0.0+
-AsyncMQTT_ESP32 v1.9.0 for ESP32 core v2.0.0+
+AsyncMQTT_ESP32 v1.10.0 for ESP32 core v2.0.0+
 ETH starting
 ETH connected
 ETH got IP
@@ -671,7 +718,7 @@ This is terminal debug output when running [FullyFeaturedSSL_WT32_ETH01](example
 ```cpp
 Starting FullyFeatureSSL_WT32_ETH01 on WT32-ETH01 with ETH_PHY_LAN8720
 WebServer_WT32_ETH01 v1.5.1 for core v2.0.0+
-AsyncMQTT_ESP32 v1.9.0 for ESP32 core v2.0.0+
+AsyncMQTT_ESP32 v1.10.0 for ESP32 core v2.0.0+
 ETH starting
 ETH connected
 ETH got IP
@@ -729,8 +776,8 @@ This is terminal debug output when running [FullyFeaturedSSL_ESP32_SC_W5500](exa
 
 ```cpp
 Starting FullyFeatureSSL_ESP32_SC_W5500 on ESP32S2_DEV with ESP32_S2_W5500
-WebServer_ESP32_SC_W5500 v1.2.0 for core v2.0.0+
-AsyncMQTT_ESP32 v1.9.0 for ESP32 core v2.0.0+
+WebServer_ESP32_SC_W5500 v1.2.1 for core v2.0.0+
+AsyncMQTT_ESP32 v1.10.0 for ESP32 core v2.0.0+
 Using built-in mac_eth = 7E:DF:A1:08:32:C9
 ETH starting
 ETH connected
@@ -797,8 +844,8 @@ This is terminal debug output when running [FullyFeaturedSSL_ESP32_SC_W5500](exa
 
 ```cpp
 Starting FullyFeatureSSL_ESP32_SC_W5500 on ESP32C3_DEV with ESP32_C3_W5500
-WebServer_ESP32_SC_W5500 v1.2.0 for core v2.0.0+
-AsyncMQTT_ESP32 v1.9.0 for ESP32 core v2.0.0+
+WebServer_ESP32_SC_W5500 v1.2.1 for core v2.0.0+
+AsyncMQTT_ESP32 v1.10.0 for ESP32 core v2.0.0+
 Using built-in mac_eth = 7C:DF:A1:BC:BC:53
 ETH starting
 ETH connected
@@ -866,7 +913,7 @@ This is terminal debug output when running [FullyFeaturedSSL_ESP32_SC_ENC](examp
 ```cpp
 Starting FullyFeatureSSL_ESP32_SC_ENC on ESP32C3_DEV with ESP32_C3_ENC28J60
 WebServer_ESP32_SC_ENC v1.2.0 for core v2.0.0+
-AsyncMQTT_ESP32 v1.9.0 for ESP32 core v2.0.0+
+AsyncMQTT_ESP32 v1.10.0 for ESP32 core v2.0.0+
 Using built-in mac_eth = 7C:DF:A1:DA:66:87
 ETH starting
 ETH connected
@@ -924,6 +971,131 @@ Publish acknowledged
 ```
 
 
+---
+
+#### 9. FullyFeature_ESP32_W6100 on ESP32_DEV with ESP32_W6100
+
+This is terminal debug output when running [FullyFeature_ESP32_W6100](examples/ESP32_W6100/FullyFeature_ESP32_W6100) on **ESP32_DEV** connecting to `broker.emqx.io` secured MQTT server (port 1883)
+
+
+```cpp
+Starting FullyFeature_ESP32_W6100 on ESP32_DEV with ESP32_W6100
+WebServer_ESP32_W6100 v1.5.2 for core v2.0.0+
+AsyncMQTT_ESP32 v1.10.0 for ESP32 core v2.0.0+
+ETH starting
+ETH connected
+ETH got IP
+IP address: 192.168.2.158
+Connecting to MQTT...
+Connected to MQTT broker: broker.emqx.io, port: 1883
+PubTopic: async-mqtt/ESP32_W6100_Pub
+************************************************
+Session present: 0
+Subscribing at QoS 2, packetId: 1
+Publishing at QoS 0
+Publishing at QoS 1, packetId: 2
+Publishing at QoS 2, packetId: 3
+************************************************
+Subscribe acknowledged.
+  packetId: 1
+  qos: 2
+Publish received.
+  topic: async-mqtt/ESP32_W6100_Pub
+  qos: 0
+  dup: 0
+  retain: 0
+  len: 16
+  index: 0
+  total: 16
+Publish acknowledged.
+  packetId: 2
+Publish received.
+  topic: async-mqtt/ESP32_W6100_Pub
+  qos: 1
+  dup: 0
+  retain: 0
+  len: 6
+  index: 0
+  total: 6
+Publish received.
+  topic: async-mqtt/ESP32_W6100_Pub
+  qos: 2
+  dup: 0
+  retain: 0
+  len: 6
+  index: 0
+  total: 6
+Publish acknowledged.
+  packetId: 3
+```
+
+
+---
+
+#### 10. FullyFeatureSSL_ESP32_SC_W6100 on ESP32S3_DEV with ESP32_S3_W6100
+
+This is terminal debug output when running [FullyFeatureSSL_ESP32_SC_W6100](examples/ESP32_SC_W6100/FullyFeatureSSL_ESP32_SC_W6100) on **ESP32S3_DEV** connecting to `broker.emqx.io` secured MQTT server (port 8883)
+
+
+```cpp
+Starting FullyFeatureSSL_ESP32_SC_W6100 on ESP32S3_DEV with ESP32_S3_W6100
+WebServer_ESP32_SC_W6100 v1.2.1 for core v2.0.0+
+AsyncMQTT_ESP32 v1.10.0 for ESP32 core v2.0.0+
+ETH starting
+ETH connected
+ETH got IP
+IP address: 192.168.2.92
+Connecting to MQTT...
+Connected to MQTT broker: broker.emqx.io, port: 8883
+PubTopic: async-mqtt/ESP32_W6100_SSL_Pub
+************************************************
+Session present: 0
+Subscribing at QoS 2, packetId: 1
+Publishing at QoS 0
+Publishing at QoS 1, packetId: 2
+Publishing at QoS 2, packetId: 3
+************************************************
+Subscribe acknowledged.
+  packetId: 1
+  qos: 2
+Publish received.
+  topic: async-mqtt/ESP32_W6100_SSL_Pub
+  qos: 2
+  dup: 0
+  retain: 1
+  len: 6
+  index: 0
+  total: 6
+Publish received.
+  topic: async-mqtt/ESP32_W6100_SSL_Pub
+  qos: 0
+  dup: 0
+  retain: 0
+  len: 16
+  index: 0
+  total: 16
+Publish acknowledged
+  packetId: 2
+Publish received.
+  topic: async-mqtt/ESP32_W6100_SSL_Pub
+  qos: 1
+  dup: 0
+  retain: 0
+  len: 6
+  index: 0
+  total: 6
+Publish received.
+  topic: async-mqtt/ESP32_W6100_SSL_Pub
+  qos: 2
+  dup: 0
+  retain: 0
+  len: 6
+  index: 0
+  total: 6
+Publish acknowledged
+  packetId: 3
+```
+
 
 ---
 ---
@@ -972,7 +1144,9 @@ Submit issues to: [AsyncMQTT_ESP32 issues](https://github.com/khoih-prog/AsyncMQ
  3. Add support to `ESP32S3` boards using `LwIP W5500 / ENC28J60 / LAN8720 Ethernet` with `SSL/TLS`
  4. Add support to `ESP32S2` boards using `LwIP W5500 / ENC28J60 / LAN8720 Ethernet` with `SSL/TLS`
  5. Add support to `ESP32C3` boards using `LwIP W5500 / ENC28J60 / LAN8720 Ethernet` with `SSL/TLS`
-
+ 6. Add support to `ESP32` and `ESP32S2/S3/C3` boards using `LwIP W6100 Ethernet` with `SSL/TLS`
+ 
+ 
 ---
 ---
 
