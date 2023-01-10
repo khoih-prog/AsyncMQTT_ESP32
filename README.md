@@ -975,7 +975,7 @@ Publish acknowledged
 
 #### 9. FullyFeature_ESP32_W6100 on ESP32_DEV with ESP32_W6100
 
-This is terminal debug output when running [FullyFeature_ESP32_W6100](examples/ESP32_W6100/FullyFeature_ESP32_W6100) on **ESP32_DEV** connecting to `broker.emqx.io` secured MQTT server (port 1883)
+This is terminal debug output when running [FullyFeatured_ESP32_W6100](examples/ESP32_W6100/FullyFeatured_ESP32_W6100) on **ESP32_DEV** connecting to `broker.emqx.io` secured MQTT server (port 1883)
 
 
 ```cpp
@@ -1034,7 +1034,7 @@ Publish acknowledged.
 
 #### 10. FullyFeatureSSL_ESP32_SC_W6100 on ESP32S3_DEV with ESP32_S3_W6100
 
-This is terminal debug output when running [FullyFeatureSSL_ESP32_SC_W6100](examples/ESP32_SC_W6100/FullyFeatureSSL_ESP32_SC_W6100) on **ESP32S3_DEV** connecting to `broker.emqx.io` secured MQTT server (port 8883)
+This is terminal debug output when running [FullyFeaturedSSL_ESP32_SC_W6100](examples/ESP32_SC_W6100/FullyFeaturedSSL_ESP32_SC_W6100) on **ESP32S3_DEV** connecting to `broker.emqx.io` secured MQTT server (port 8883)
 
 
 ```cpp
